@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prioridade de Atendimento</title>
+    <style>
+        .hidden {
+        display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Como definir a prioridade de atendimento de um aparelho:</h2>
+  
+    <hr>
+    <!-- Pergunta 1 -->
+     
+    <div id="pergunta1">
+        <p>1 - Aparelho possui Agendamento?</p>
+        <button onclick="responderPergunta1('simAgendamento')">Sim</button>
+        <button onclick="responderPergunta1('naoAgendamento')">Não</button>
+    </div>
+
+    <!-- Pergunta 2 -->
+    <div id="pergunta2" class="hidden">
+        <p>2 - Está na Garantia Master?</p>
+        <button onclick="responderPergunta2('simGarantia')">Sim</button>
+        <button onclick="responderPergunta2('naoGarantia')">Não</button>
+    </div>
+
+    <!-- Pergunta 3 -->
+    <div id="pergunta3" class="hidden">
+        <p>3 - Está na Garantia de Fábrica de 5 anos ou 1 ano Cotton?</p>
+        <button onclick="responderPergunta3('simFabrica')">Sim</button>
+        <button onclick="responderPergunta3('naoFabrica')">Não</button>
+    </div>
+
+    <!-- Pergunta 4 -->
+    <div id="pergunta4" class="hidden">
+        <p>4 - Possui etiqueta de aferição (Passou por Manutenção Master)?</p>
+        <button onclick="responderPergunta4('simAfericao')">Sim</button>
+        <button onclick="responderPergunta4('naoAfericao')">Não</button>
+    </div>
+  
+    <!-- Pergunta 5 -->
+    <div id="pergunta5" class="hidden">
+        <p>5 - Enviado até 10 meses da data de fabricação?</p>
+        <button onclick="responderPergunta5('simMeses')">Sim</button>
+        <button onclick="responderPergunta5('naoMeses')">Não</button>
+    </div>
+    </h2>
+
+    <!-- Resultados finais -->
+    <h2>
+    <div id="resultadoFinal" class="hidden">
+        <p>Identificar o Aparelho com a <d>Etiqueta de Cor Azul!</d></h2>
+    </div>
+
+    <!-- Mensagem de erro -->
+    <div id="resultadoErro" class="hidden">
+        <p id="mensagemErro"></p>
+    </div>
+    <script>
+        function responderPergunta1(resposta) {
+            if (resposta === 'naoAgendamento'){
+                document.getElementById('pergunta1').classList.add('hidden');
+                document.getElementById('pergunta2').classList.remove('hidden');
+            } else {
+                mostrarErro('Identificar o Aparelho com a ETIQUETA DE COR PRETA!');
+        }
+        }    
+        function responderPergunta2 (resposta) {
+            if (resposta === 'naoGarantia') {
+                document.getElementById('pergunta2').classList.add('hidden');
+                document.getElementById('pergunta3').classList.remove('hidden');
+            } else {
+                mostrarErro ('Identificar o Aparelho com a ETIQUETA DE COR AMARELA!');
+            }
+        }
+        function responderPergunta3(resposta) {
+            if (resposta === 'simFabrica') {
+                document.getElementById('pergunta3').classList.add('hidden');
+                document.getElementById('pergunta4').classList.remove('hidden');
+            } else {
+                mostrarErro('Identificar o Aparelho com a ETIQUETA DE COR AZUL!');
+            }
+        }
+        function responderPergunta4(resposta) {
+            if (resposta === 'naoAfericao') {
+                document.getElementById('pergunta4').classList.add('hidden');
+                document.getElementById('pergunta5').classList.remove('hidden');
+            } else {
+                mostrarErro('Identificar o Aparelho com a ETIQUETA DE COR AZUL!');
+            }
+        }
+        function responderPergunta5(resposta) {
+            if (resposta === 'naoMeses') {
+                document.getElementById('pergunta5').classList.add('hidden');
+                document.getElementById('resultadoFinal').classList.remove('hidden');
+            } else {
+                mostrarErro('Identificar o Aparelho com a ETIQUETA DE COR VERMELHA!');                      
+            }
+        }
+        function mostrarErro(mensagem) {
+            document.getElementById('pergunta1').classList.add('hidden');
+            document.getElementById('pergunta2').classList.add('hidden');
+            document.getElementById('pergunta3').classList.add('hidden');
+            document.getElementById('pergunta4').classList.add('hidden');
+            document.getElementById('pergunta5').classList.add('hidden');
+            document.getElementById('resultadoErro').classList.remove('hidden');
+            document.getElementById('mensagemErro').textContent = mensagem;
+        }       
+</script>
+<hr>
+<script>
+function recarregarPagina() {location.reload();}
+</script>
+</head>
+<h1></h1>
+
+<button onclick="recarregarPagina()">Reiniciar</button>    
+</script>
+<style>
+    h2 {
+    font-family: 'Arial', sans-serif; /* Define a fonte */
+    font-size: 20px;                  /* Define o tamanho da fonte */
+    font-weight: bold;                /* Define o peso (negrito) */
+    color: #333;                    /* Define a cor da fonte */
+}
+</style>
+<style>
+    p {
+    font-family: 'Arial', sans-serif; /* Define a fonte */
+    font-size: 15px;                  /* Define o tamanho da fonte */
+    font-weight: bold;                /* Define o peso (negrito) */
+    color:  #333;                 /* Define a cor da fonte */
+    }
+</style>
+<style>
+    d {
+    font-family: 'Arial', sans-serif; /* Define a fonte */
+    font-size: 20px;                  /* Define o tamanho da fonte */
+    font-weight: bold;                /* Define o peso (negrito) */
+    color: #0a06f3;                 /* Define a cor da fonte */
+    }
+</style>
+</body>
+<script>
+    elemento0 = document.getElementsByTagNamemo('pergunta1');
+    elemento0.style.color = 'blue'
+</script>
+</html>
